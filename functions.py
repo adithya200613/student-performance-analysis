@@ -14,6 +14,7 @@ SUBJECTS = [
 def calculate_student_metrics(df):
     """Calculate total, average, grade and pass/fail for each student."""
     df = df.copy()
+    df["Attendance"] = pd.to_numeric(df["Attendance"], errors="coerce")
 
     # NumPy is used for efficient numerical calculations.
     marks = df[SUBJECTS].to_numpy(dtype=float)
